@@ -366,7 +366,7 @@ finally:
     # 保存数据
     if experiment_data:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"test3_plume_{timestamp}.csv"
+        filename = f"hybrid_plume_{timestamp}.csv"
         save_data_to_file(experiment_data, filename)
     time.sleep(3)
     motor_ctrl.close()

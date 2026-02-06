@@ -275,7 +275,7 @@ finally:
     motor_ctrl.move_motors(0, 0, speed=800)
     if experiment_data:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"test1_plume_{timestamp}.csv"
+        filename = f"angle_plume_{timestamp}.csv"
         save_data_to_file(experiment_data, filename)
     time.sleep(3)
     motor_ctrl.close()

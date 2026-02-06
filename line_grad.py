@@ -158,10 +158,9 @@ except KeyboardInterrupt:
 finally:
     process.terminate()
     motor_ctrl.move_motors(0, 0, speed=800)
-    # 保存数据
-    if experiment_data:
+        if experiment_data:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"test2_con_grad_{timestamp}.csv"
+        filename = f"line_grad_{timestamp}.csv"
         save_data_to_file(experiment_data, filename)
     time.sleep(3)
     motor_ctrl.close()

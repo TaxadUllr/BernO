@@ -228,10 +228,10 @@ finally:
     process.terminate()
     
     motor_ctrl.move_motors(0, 0, speed=800)
-    # 保存数据
+
     if experiment_data:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"test2_plume_{timestamp}.csv"
+        filename = f"line_plume_{timestamp}.csv"
         save_data_to_file(experiment_data, filename)
 
 

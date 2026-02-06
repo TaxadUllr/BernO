@@ -14,7 +14,6 @@ class StepperController:
         self.ser = serial.Serial(port, baudrate, timeout=1)
         time.sleep(2) 
 
-    # 等待 Arduino 回送 “ok”
     def _wait_ok(self, timeout: float = 1.0) -> bool:
         deadline = time.time() + timeout
         while time.time() < deadline:
@@ -182,7 +181,7 @@ finally:
     motor_ctrl.move_motors(0, 0, speed=800)
     if test_data:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"test1_con_grad_{timestamp}.csv"
+        filename = f"angle_grad_{timestamp}.csv"
         save_data_to_file(test_data, filename)
     time.sleep(3)
     motor_ctrl.close()
