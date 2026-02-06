@@ -136,22 +136,4 @@ Runtime behavior:
 - Continuously reads logcat and streams motor commands to the Arduino
 - On end events, stops and writes a CSV file
 
-## Output data (CSV)
 
-Each script saves a CSV at exit, with a timestamped name, e.g.:
-- `test1_con_grad_YYYYMMDD_HHMMSS.csv`
-- `test1_plume_YYYYMMDD_HHMMSS.csv`
-- `test2_con_grad_...csv`
-- `test2_plume_...csv`
-- `test3_con_grad_...csv`
-- `test3_plume_...csv`
-
-Field sets differ by script:
-- Angle/Line scripts: `tgt,chosen,err,rt` or `targetS,lastS,errS,rt`
-- Hybrid scripts: `trial, chest_*, is_target, target_*, rt, unix`, etc.
-
-## Notes / safety
-
-- The scripts attempt to stop motors on exit by sending `0 0 800`. Keep a clear mechanical range to avoid stalls.
-- `prop2motor()` maps an intensity-like value in `[0, 1]` to a target position up to ~750. If your mechanism has a smaller travel, adjust or clamp the mapping.
-- If Python prints `timeout/time out`, the Arduino ACK (`ok`) was not received—check baud rate, port, and whether another program is using the serial port.
